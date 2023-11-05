@@ -17,6 +17,6 @@
   height: 100vh;
 }
 .element {
-  width: 400px;
+  width: 450px;
 }
 </style>

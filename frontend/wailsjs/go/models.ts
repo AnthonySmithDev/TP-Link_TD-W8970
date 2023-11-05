@@ -1,12 +1,12 @@
 export namespace wireless {
 	
-	export class Class {
+	export class Info {
 	    ssid: string;
 	    enable: boolean;
 	    password: string;
 	
 	    static createFrom(source: any = {}) {
-	        return new Class(source);
+	        return new Info(source);
 	    }
 	
 	    constructor(source: any = {}) {

@@ -27,10 +27,7 @@ async function submit() {
   <article>
     <hgroup>
       <h1>Wireless Settings</h1>
-      <h2>
-        Personalize settings for each band or enable Smart Connect to configure
-        the same settings for all bands.
-      </h2>
+      <h2> Customize Wi-Fi settings to configure your network.</h2>
     </hgroup>
     <form @submit.prevent>
       <fieldset>

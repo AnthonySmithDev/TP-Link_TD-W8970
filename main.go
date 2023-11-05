@@ -17,9 +17,16 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:  "TP-Link_TD-W8970",
-		Width:  1024,
-		Height: 768,
+		Title: "TP-Link_TD-W8970",
+
+		MinWidth: 550,
+		Width:    650,
+		MaxWidth: 700,
+
+		MinHeight: 750,
+		Height:    850,
+		MaxHeight: 950,
+
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},

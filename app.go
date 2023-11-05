@@ -25,13 +25,13 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-func (a *App) WirelessRead() *wireless.Class {
+func (a *App) WirelessRead() *wireless.Info {
 	s := wireless.NewSlice().SetEnable().SetSSID().SetPassword()
-	class, err := wireless.Get(s)
+	info, err := wireless.Get(s)
 	if err != nil {
 		return nil
 	}
-	return class
+	return info
 }
 
 func (a *App) WirelessWrite(enable bool, name, password string) error {

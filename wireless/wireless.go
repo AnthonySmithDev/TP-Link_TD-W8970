@@ -63,23 +63,6 @@ func strIntToBool(v string) bool {
 	return false
 }
 
-func getValue(s string) string {
-	array := strings.Split(s, "=")
-	return array[1]
-}
-
-func arrayToTemplate(lines []string) string {
-	var s string
-	for _, line := range lines {
-		s += line + "\r\n"
-	}
-	return s
-}
-
-type Template interface {
-	ToString() string
-}
-
 type Slice struct {
 	array []string
 }
@@ -150,38 +133,38 @@ func (s *Map) ToString() string {
 	return data
 }
 
-type Class struct {
+type Info struct {
 	SSID     string `json:"ssid"`
 	Enable   bool   `json:"enable"`
 	Password string `json:"password"`
 }
 
-func NewClass(data []byte) *Class {
-	class := new(Class)
+func NewInfo(data []byte) *Info {
+	info := new(Info)
 	lines := strings.Split(string(data), "\n")
 	for _, line := range lines {
 		s := strings.Split(line, "=")
 		switch s[0] {
 		case "SSID":
-			class.SSID = s[1]
+			info.SSID = s[1]
 		case "enable":
-			class.Enable = strIntToBool(s[1])
+			info.Enable = strIntToBool(s[1])
 		case "X_TP_PreSharedKey":
-			class.Password = s[1]
+			info.Password = s[1]
 		}
 	}
-	return class
+	return info
 }
 
-func Get(s *Slice) (*Class, error) {
-	data, err := request("5", s.ToString(), true)
+func Get(s *Slice) (*Info, error) {
+	data, err := request("5", s.ToString(), false)
 	if err != nil {
 		return nil, err
 	}
-	return NewClass(data), nil
+	return NewInfo(data), nil
 }
 
 func Put(m *Map) error {
-	_, err := request("2", m.ToString(), true)
+	_, err := request("2", m.ToString(), false)
 	return err
 }

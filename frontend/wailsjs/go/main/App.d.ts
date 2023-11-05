@@ -6,6 +6,6 @@ export function SystemRead():Promise<string>;
 
 export function SystemWrite(arg1:string):Promise<void>;
 
-export function WirelessRead():Promise<wireless.Class>;
+export function WirelessRead():Promise<wireless.Info>;
 
 export function WirelessWrite(arg1:boolean,arg2:string,arg3:string):Promise<void>;

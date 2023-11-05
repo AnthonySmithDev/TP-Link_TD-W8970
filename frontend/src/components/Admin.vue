@@ -14,11 +14,10 @@
 
 <style scoped>
 .navbar {
-  margin-bottom: 25px;
   display: flex;
   justify-content: space-around;
 }
 .content {
-  height: 90vh;
+  height: 85vh;
 }
 </style>
