@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { SystemRead } from "../../wailsjs/go/main/App.js";
 
+const router = useRouter();
 const loading = ref(false);
 const invalid = ref("");
 const password = ref("");
@@ -10,12 +12,20 @@ async function submit() {
   invalid.value = "";
   loading.value = true;
   const pwd = await SystemRead();
-  if (pwd == password.value) {
-    invalid.value = "false";
-  } else {
-    invalid.value = "true";
-  }
-  loading.value = false;
+  setTimeout(function () {
+    if (pwd == password.value) {
+      invalid.value = "false";
+    } else {
+      invalid.value = "true";
+    }
+  }, 500);
+
+  setTimeout(function () {
+    if (pwd == password.value) {
+      router.push("/wireless");
+    }
+    loading.value = false;
+  }, 1200);
 }
 
 function isInvalid(value: string) {

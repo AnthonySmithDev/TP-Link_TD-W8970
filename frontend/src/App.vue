@@ -1,14 +1,22 @@
 <script lang="ts" setup>
-import Login from './components/Login.vue';
-import Wireless from './components/Wireless.vue';
-import System from './components/System.vue';
 </script>
 
 <template>
-    <Login/>
-    <Wireless/>
-    <System/>
+  <div class="center">
+    <div class="element">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
-<style>
+<style scoped>
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.element {
+  width: 400px;
+}
 </style>
