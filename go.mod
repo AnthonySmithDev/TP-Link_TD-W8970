@@ -1,4 +1,4 @@
-module changeme
+module tp-link/td-w8970
 
 go 1.18
 
