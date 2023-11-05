@@ -25,6 +25,13 @@ async function submit() {
 
 <template>
   <article>
+    <hgroup>
+      <h1>Wireless Settings</h1>
+      <h2>
+        Personalize settings for each band or enable Smart Connect to configure
+        the same settings for all bands.
+      </h2>
+    </hgroup>
     <form @submit.prevent>
       <fieldset>
         <label for="switch">
@@ -35,7 +42,7 @@ async function submit() {
             name="switch"
             role="switch"
           />
-          Enable Wifi
+          Enable
         </label>
       </fieldset>
       <label for="ssid">Network Name (SSID)</label>

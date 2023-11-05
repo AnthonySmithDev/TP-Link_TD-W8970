@@ -39,28 +39,31 @@ func (a *App) WirelessWrite(enable bool, name, password string) error {
 	return wireless.Put(m)
 }
 
-const Password = "admin"
+const (
+	Path = "pwd.txt"
+	Pass = "admin"
+)
 
 func (a *App) SystemRead() string {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
-		return Password
+		return Pass
 	}
-	newFile := filepath.Join(homeDir, "pwd.txt")
+	newFile := filepath.Join(homeDir, Path)
 	data, err := os.ReadFile(newFile)
 	if err != nil {
-		return Password
+		return Pass
 	}
 	if string(data) == "" {
-		return Password
+		return Pass
 	}
 	return string(data)
 }
 
 func (a *App) SystemWrite(password string) error {
-	time.Sleep(time.Millisecond * 500)
+	time.Sleep(time.Second)
 	homeDir, _ := os.UserHomeDir()
-	newFile := filepath.Join(homeDir, "pwd.txt")
+	newFile := filepath.Join(homeDir, Path)
 	err := os.WriteFile(newFile, []byte(password), 0644)
 	if err != nil {
 		return err

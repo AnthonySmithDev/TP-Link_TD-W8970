@@ -39,18 +39,22 @@ async function submit() {
 
 function isInvalid(value: string) {
   if (value == "") {
-    return undefined
+    return undefined;
   } else if (value == "true") {
-    return true
+    return true;
   } else {
-    return false
+    return false;
   }
 }
 </script>
 
 <template>
   <article>
-    <form @submit.prevent aria-invalid="true">
+    <hgroup>
+      <h1>Change Password</h1>
+      <h2>Change the router's local management password.</h2>
+    </hgroup>
+    <form @submit.prevent>
       <label for="old_password">Old Password</label>
       <input
         v-model="password.old"
